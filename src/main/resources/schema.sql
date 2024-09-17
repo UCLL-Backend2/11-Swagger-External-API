@@ -25,7 +25,7 @@ CREATE TABLE movie_actors
 );
 
 ALTER TABLE movie_actors
-    ADD CONSTRAINT fk_movact_on_actor FOREIGN KEY (actor_id) REFERENCES actor (id);
+    ADD CONSTRAINT fk_movact_on_actor FOREIGN KEY (actor_id) REFERENCES actor (id) ON DELETE CASCADE;
 
 ALTER TABLE movie_actors
-    ADD CONSTRAINT fk_movact_on_movie FOREIGN KEY (movie_id) REFERENCES movie (id);
+    ADD CONSTRAINT fk_movact_on_movie FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE;

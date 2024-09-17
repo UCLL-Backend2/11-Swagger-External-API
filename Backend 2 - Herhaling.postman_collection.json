@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "c953d8ad-0492-4a98-b79a-db41bfedeb8e",
+		"name": "Backend 2 - Herhaling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30232115"
+	},
+	"item": [
+		{
+			"name": "GET /api/v1/actor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/actor",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/v1/actor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"actor_id\", pm.response.json().id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jos Bosmans\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/actor",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/actor/{actor_id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actor",
+						"{{actor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /api/v1/actor/{actor_id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Clement Peerens\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actor",
+						"{{actor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/v1/actor/{actor_id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"actor",
+						"{{actor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/movie",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/movie with start year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/movie?startYear=2000&endYear=2010",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movie"
+					],
+					"query": [
+						{
+							"key": "startYear",
+							"value": "2000"
+						},
+						{
+							"key": "endYear",
+							"value": "2010"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "actor_id",
+			"value": ""
+		}
+	]
+}

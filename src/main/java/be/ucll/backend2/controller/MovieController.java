@@ -4,9 +4,11 @@ import be.ucll.backend2.model.Movie;
 import be.ucll.backend2.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/movie")
@@ -18,7 +20,12 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<Movie> getAllActors() {
-        return movieService.getAllMovies();
+    public List<Movie> getMovies(@RequestParam Optional<Integer> startYear,
+                                 @RequestParam Optional<Integer> endYear) {
+        if (startYear.isPresent() || endYear.isPresent()) {
+            return movieService.getMoviesBetween(startYear, endYear);
+        } else {
+            return movieService.getAllMovies();
+        }
     }
 }

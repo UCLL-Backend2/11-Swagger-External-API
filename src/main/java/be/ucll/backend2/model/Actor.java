@@ -1,6 +1,6 @@
 package be.ucll.backend2.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -15,7 +15,7 @@ public class Actor {
     private String name;
 
     @ManyToMany(mappedBy = "actors")
-    @JsonBackReference
+    @JsonIgnore
     private Set<Movie> movies;
 
     protected Actor() {
@@ -45,5 +45,9 @@ public class Actor {
 
     public Set<Movie> getMovies() {
         return movies;
+    }
+
+    public void update(Actor actor) {
+        this.name = actor.getName();
     }
 }

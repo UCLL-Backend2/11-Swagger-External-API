@@ -1,6 +1,5 @@
 package be.ucll.backend2.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,13 +17,12 @@ public class Movie {
 
     private int year;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "movie_actors",
-            joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
-    @JsonManagedReference
     private Set<Actor> actors;
 
     protected Movie() {
