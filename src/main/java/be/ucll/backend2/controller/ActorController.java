@@ -31,6 +31,7 @@ public class ActorController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Actor createActor(@RequestBody Actor actor) {
         return actorService.createActor(actor);
     }
