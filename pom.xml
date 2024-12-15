@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.3</version>
+        <version>3.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.ucll.backend2</groupId>
-    <artifactId>herhaling</artifactId>
+    <artifactId>swagger-external-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>01-Herhaling-Demo</name>
-    <description>01-Herhaling-Demo</description>
+    <name>11-Swagger-External-API</name>
+    <description>11-Swagger-External-API</description>
     <url/>
     <licenses>
         <license/>
@@ -57,6 +57,11 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.7.0</version>
         </dependency>
     </dependencies>
 
